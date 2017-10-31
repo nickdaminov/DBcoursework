@@ -25,34 +25,34 @@ public:
 //#include <std::string>
 
 #pragma db object
-class user
+class User
 {
 	public:
 		#pragma db id auto
 		std::string id;
 		std::string name;
 
-		user () {};
+		User () {};
 };
 
 #pragma db object
-class review
+class Review
 {
 	public:
 		#pragma db id auto
 		std::string user_id;
 		std::string business_id;
 
-		review () {};
+		Review () {};
 };
 
 #pragma db object
-class hours
+class Hours
 {
 	public:
 		#pragma db id auto
 		std::string business_id;
 		std::string hours;
 
-		hours () {};
+		Hours () {};
 };
