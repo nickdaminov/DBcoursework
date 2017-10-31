@@ -4,7 +4,7 @@
 #include <odb/database.hxx>
 #include <odb/mssql/database.hxx>
 #include <odb/transaction.hxx>
-#include <string>
+#include <std::string>
 
 using std::cout;
 using std::endl;
@@ -28,8 +28,22 @@ std::vector<string> findHours(odb::database& db, std::string username) {
 
 	//now iterate through mathed users and push their IDs into userIDs
 	for (auto singleUser : matchedUsers) {
-		userIDs.pushback(singleUser.id);
+		string s = singleUser.id;
+		userIDs.push_back(s);
 	}
+
+	//now creating a list of business IDs
+	std::vector<string> businessIDs;
+	for (auto singleUserID : userIDs) {
+		auto matchingReviews = db.query<review>(odb::query<review>::user_id == singleUserID)
+		for (auto singleReview : matchingReviews) {
+			string s = singleBusiness.business_id;
+			businessIDs.push_back(s);
+		}
+	}
+
+	//now for every fucking business id fucking bitch slut ass cunt we fucking lookup hours
+	//for ()
 
 	t.commit();
 	return result;

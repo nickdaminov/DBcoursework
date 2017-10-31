@@ -22,7 +22,7 @@ public:
 // No need to change anything above this line
 // ---------------------------------------------
 
-#include <string>
+#include <std::string>
 
 #pragma db object
 class user
