@@ -1,4 +1,0 @@
-/homes/nd2215/DBcoursework/build/CMakeFiles/edit_cache.dir
-/homes/nd2215/DBcoursework/build/CMakeFiles/ADBCoursework1.dir
-/homes/nd2215/DBcoursework/build/CMakeFiles/rebuild_cache.dir
-/homes/nd2215/DBcoursework/build/CMakeFiles/ODBHeaders.dir
