@@ -44,7 +44,7 @@ class review
 		std::string business_id;
 
 		review () {};
-}
+};
 
 #pragma db object
 class hours
@@ -55,4 +55,4 @@ class hours
 		std::string hours;
 
 		hours () {};
-}
+};
