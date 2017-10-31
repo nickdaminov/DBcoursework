@@ -22,15 +22,15 @@ public:
 // No need to change anything above this line
 // ---------------------------------------------
 
-#include <std::string>
+//#include <std::string>
 
 #pragma db object
 class user
 {
 	public:
 		#pragma db id auto
-		string id;
-		string name;
+		std::string id;
+		std::string name;
 
 		user () {};
 };
@@ -40,8 +40,8 @@ class review
 {
 	public:
 		#pragma db id auto
-		string user_id;
-		string business_id;
+		std::string user_id;
+		std::string business_id;
 
 		review () {};
 }
@@ -51,8 +51,8 @@ class hours
 {
 	public:
 		#pragma db id auto
-		string business_id;
-		string hours;
+		std::string business_id;
+		std::string hours;
 
 		hours () {};
 }

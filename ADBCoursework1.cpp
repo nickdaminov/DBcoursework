@@ -4,7 +4,7 @@
 #include <odb/database.hxx>
 #include <odb/mssql/database.hxx>
 #include <odb/transaction.hxx>
-#include <std::string>
+//#include <std::string>
 
 using std::cout;
 using std::endl;
@@ -24,20 +24,20 @@ std::vector<string> findHours(odb::database& db, std::string username) {
 	auto matchingUsers = db.query<user>(odb::query<user>::name == username)
 
 	//now creating a vector of user IDs
-	std::vector<string> userIDs;
+	std::vector<std::string> userIDs;
 
 	//now iterate through mathed users and push their IDs into userIDs
 	for (auto singleUser : matchedUsers) {
-		string s = singleUser.id;
+		std::string s = singleUser.id;
 		userIDs.push_back(s);
 	}
 
 	//now creating a list of business IDs
-	std::vector<string> businessIDs;
+	std::vector<std::string> businessIDs;
 	for (auto singleUserID : userIDs) {
 		auto matchingReviews = db.query<review>(odb::query<review>::user_id == singleUserID)
 		for (auto singleReview : matchingReviews) {
-			string s = singleBusiness.business_id;
+			std::string s = singleBusiness.business_id;
 			businessIDs.push_back(s);
 		}
 	}
