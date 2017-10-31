@@ -23,7 +23,7 @@ public:
 // ---------------------------------------------
 
 //#include <std::string>
-
+/*
 #pragma db object
 class User
 {
@@ -56,3 +56,4 @@ class Hours
 
 		Hours () {};
 };
+*/
