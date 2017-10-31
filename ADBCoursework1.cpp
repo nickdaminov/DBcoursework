@@ -27,10 +27,10 @@ std::vector<string> findHours(odb::database& db, std::string username) {
 	std::vector<std::string> userIDs;
 
 	//now iterate through mathed users and push their IDs into userIDs
-	for (auto singleUser : matchedUsers) {
+	/*for (auto singleUser : matchedUsers) {
 		std::string s = singleUser.id;
 		userIDs.push_back(s);
-	}
+	}*/
 
 	//now creating a list of business IDs
 	/*std::vector<std::string> businessIDs;
