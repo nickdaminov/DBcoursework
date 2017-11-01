@@ -65,7 +65,7 @@ std::vector<StarCount> countStars(odb::database& db, float latMin, float latMax,
 	return result;
 }
 
-void createIndex(odb::database& db){Патч на консолях появился. Надо на это посмотреть. Вместе. Если вы понимаете, о чем я. ￼
+void createIndex(odb::database& db){￼
 	// Your implementation goes here:
 	// don't forget to wrap it in a transaction
 	// create a columnstore index to accelerate your query
