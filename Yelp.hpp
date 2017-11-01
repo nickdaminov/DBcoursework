@@ -31,7 +31,7 @@ class user
 		std::string id;
 		std::string name;
 
-		//user () {};
+		user () {};
 };
 
 //review class
@@ -43,7 +43,7 @@ class review
 		std::string user_id;
 		std::string business_id;
 
-		//review () {};
+		review () {};
 };
 
 //hours class
@@ -56,5 +56,5 @@ class hours
 		#pragma db not null
 		std::string hours;
 
-		//hours () {};
+		hours () {};
 };
