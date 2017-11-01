@@ -53,7 +53,7 @@ class hours
 	public:
 		#pragma db id auto
 		std::string business_id;
-		#pragma bd not null
+		#pragma db not null
 		std::string hours;
 
 		//hours () {};
