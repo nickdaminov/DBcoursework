@@ -40,7 +40,7 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 		}
 	}
 
-	//now for every business idwe lookup hours
+	//now for every business id we lookup hours
 	for (auto singleBusinessID : businessIDs) {
 		auto matchingHours = db.query<hours>(odb::query<hours>::business_id == singleBusinessID);
 		for (auto hourOnject : matchingHours) {
