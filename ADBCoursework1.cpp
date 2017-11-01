@@ -40,8 +40,14 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 		}
 	}
 
-	//now for every fucking business id fucking bitch slut ass cunt we fucking lookup hours
-	//for ()
+	//now for every business idwe lookup hours
+	for (auto singleBusinessID : businessIDs) {
+		auto matchingHours = db.query<hours>(odb::query<hours>::business_id == singleBusinessID);
+		for (auto hourOnject : matchingHours) {
+			std::string s = hourOnject.hours;
+			result.push_back(s);
+		}
+	}
 
 
 	t.commit();
