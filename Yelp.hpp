@@ -42,7 +42,7 @@ class review
 		#pragma db id auto
 		std::string user_id;
 		std::string business_id;
-
+		std::string stars;
 		//review () {};
 };
 
@@ -56,5 +56,17 @@ class hours
 		//#pragma db not null
 		std::string hours;
 
+		//hours () {};
+};
+
+#pragma db object
+class business
+{
+	public:
+		#pragma db id auto
+		std::string id;
+		//#pragma db not null
+		std::string latitude;
+		std::string longitude;
 		//hours () {};
 };
