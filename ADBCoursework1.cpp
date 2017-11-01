@@ -27,7 +27,7 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 	for (auto singleUser : matchingUsers) {
 		std::string s = singleUser.id;
 		userIDs.push_back(s);
-		cout << s;
+		cout << s << endl;
 	}
 
 	//now creating a list of business IDs
