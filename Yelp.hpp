@@ -22,4 +22,38 @@ public:
 // No need to change anything above this line
 // ---------------------------------------------
 
+//user class
+#pragma db object
+class User
+{
+	public:
+		#pragma db id auto
+		std::string id;
+		std::string name;
 
+		user () {};
+};
+
+//review class
+#pragma db object
+class Review
+{
+	public:
+		#pragma db id auto
+		std::string user_id;
+		std::string business_id;
+
+		review () {};
+}
+
+//hours class
+#pragma db object
+class Hours
+{
+	public:
+		#pragma db id auto
+		std::string business_id;
+		std::string hours;
+
+		hours () {};
+}
