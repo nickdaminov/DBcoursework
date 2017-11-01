@@ -31,7 +31,7 @@ class User
 		std::string id;
 		std::string name;
 
-		user () {};
+		User () {};
 };
 
 //review class
@@ -43,7 +43,7 @@ class Review
 		std::string user_id;
 		std::string business_id;
 
-		review () {};
+		Review () {};
 };
 
 //hours class
@@ -55,5 +55,5 @@ class Hours
 		std::string business_id;
 		std::string hours;
 
-		hours () {};
+		Hours () {};
 };
