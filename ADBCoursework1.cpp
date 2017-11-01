@@ -20,7 +20,7 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 	// Find the hours
 
 	//getting all the users with the mathcing name
-	auto matchingUsers = db.query<user>(odb::query<user>::name == username)
+	auto matchingUsers = db.query<user>(odb::query<user>::name == username);
 
 	//now creating a vector of user IDs
 	std::vector<std::string> userIDs;
