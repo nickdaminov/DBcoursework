@@ -35,7 +35,7 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 	for (auto singleUserID : userIDs) {
 		auto matchingReviews = db.query<review>(odb::query<review>::user_id == singleUserID);
 		for (auto singleReview : matchingReviews) {
-			std::string s = singleBusiness.business_id;
+			std::string s = singleReview.business_id;
 			businessIDs.push_back(s);
 		}
 	}
