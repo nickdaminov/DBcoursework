@@ -18,6 +18,34 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 	transaction t(db.begin());
 	// Your implementation goes here:
 	// Find the hours
+
+	//getting all the users with the mathcing name
+	auto matchingUsers = db.query<User>(odb::query<user>::name == username)
+
+	//now creating a vector of user IDs
+	std::vector<std::string> userIDs;
+
+	//now iterate through matched users and push their IDs into userIDs
+	for (auto singleUser : matchedUsers) {
+		std::string s = singleUser.id;
+		userIDs.push_back(s);
+		cout << s;
+	}
+
+	//now creating a list of business IDs
+	/*std::vector<std::string> businessIDs;
+	for (auto singleUserID : userIDs) {
+		auto matchingReviews = db.query<review>(odb::query<review>::user_id == singleUserID)
+		for (auto singleReview : matchingReviews) {
+			std::string s = singleBusiness.business_id;
+			businessIDs.push_back(s);
+		}
+	}*/
+
+	//now for every fucking business id fucking bitch slut ass cunt we fucking lookup hours
+	//for ()
+
+
 	t.commit();
 	return result;
 }
