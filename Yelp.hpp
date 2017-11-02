@@ -22,6 +22,12 @@ public:
 // No need to change anything above this line
 // ---------------------------------------------
 
+//in none of these cases we need constructors cuz 3.2
+//cuz we only load
+
+
+
+//what are friends and what are transient fields?
 //user class
 #pragma db object
 class user
@@ -44,7 +50,6 @@ class review
 		std::string user_id;
 		std::string business_id;
 		std::string stars;
-		//review () {};
 };
 
 //hours class

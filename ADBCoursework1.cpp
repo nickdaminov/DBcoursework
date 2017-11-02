@@ -24,6 +24,7 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 
 	//now creating a vector of user IDs
 	std::vector<std::string> userIDs;
+	//many users with same username
 	for (auto singleUser : matchingUsers) {
 		std::string s = singleUser.id;
 		userIDs.push_back(s);
@@ -34,6 +35,7 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 	std::vector<std::string> businessIDs;
 	for (auto singleUserID : userIDs) {
 		auto matchingReviews = db.query<review>(odb::query<review>::user_id == singleUserID);
+		//one user -> many reviews
 		for (auto singleReview : matchingReviews) {
 			std::string s = singleReview.business_id;
 			businessIDs.push_back(s);
@@ -43,13 +45,14 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 	//now for every business id we lookup hours
 	for (auto singleBusinessID : businessIDs) {
 		auto matchingHours = db.query<hours>(odb::query<hours>::business_id == singleBusinessID);
+		//is opening hours to business one to one or many to one???
 		for (auto hourOnject : matchingHours) {
 			std::string s = hourOnject.hours;
 			result.push_back(s);
 		}
 	}
 
-
+	//5 for loops lol
 	t.commit();
 	return result;
 }
@@ -60,7 +63,19 @@ std::vector<StarCount> countStars(odb::database& db, float latMin, float latMax,
 	transaction t(db.begin());
 	// Your implementation goes here:
 	// db.query<StarCount>("select ...")
+	auto starCounts = db.query<StarCount>("SELECT review.stars
+																				FROM review
+																				INNER JOIN business ON review.business_id=business.id
+																				WHERE business.latitude BETWEEN latMin AND latMax
+																				AND business.longitude BETWEEN latMin AND latMAX");
+	//select review.stars
+	//WHERE latitude is BETWEEN AND longitude is BETWEEN
 	// Count the stars
+
+	for (auto star : starCounts) {
+		result.push_back(star);
+	}
+
 	t.commit();
 	return result;
 }
