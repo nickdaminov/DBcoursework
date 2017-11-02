@@ -45,7 +45,6 @@ std::vector<std::string> findHours(odb::database& db, std::string username) {
 	//now for every business id we lookup hours
 	for (auto singleBusinessID : businessIDs) {
 		auto matchingHours = db.query<hours>(odb::query<hours>::business_id == singleBusinessID);
-		//is opening hours to business one to one or many to one???
 		for (auto hourOnject : matchingHours) {
 			std::string s = hourOnject.hours;
 			result.push_back(s);
@@ -70,8 +69,6 @@ std::vector<StarCount> countStars(odb::database& db, float latMin, float latMax,
 																				" WHERE latitude BETWEEN " +  to_string(latMin) + " AND " + to_string(latMax) +
 																				" AND longitude BETWEEN " + to_string(longMin) + " AND " + to_string(longMax) +
 																				" GROUP BY review.stars");
-
-	//idk why it works ^
 	// Count the stars
 	for (auto star : starCounts) {
 		auto s = star;
@@ -89,10 +86,6 @@ void createIndex(odb::database& db){
 	transaction t(db.begin());
 	db.execute("CREATE COLUMNSTORE INDEX business_index ON business(id, latitude, longitude)");
 	db.execute("CREATE COLUMNSTORE INDEX review_index ON review(business_id, stars)");
-	//db.execute("DROP INDEX business_index_v2 ON business");
-	//db.execute("DROP INDEX business_index ON business");
-	//db.execute("DROP INDEX review_index_v2 ON review");
-	//db.execute("DROP INDEX review_index ON review");
 	t.commit();
 }
 
@@ -200,7 +193,7 @@ int main(int argc, char** argv) {
 					 << " time before indexing: " << getLastQueryRuntime(db).elapsed_time << endl;
 		}
 
-		//createIndex(db);
+		createIndex(db);
 
 		// warmup run
 		countStars(db, 30.0, 45.7, -100.0, -1.0);
