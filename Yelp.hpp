@@ -40,6 +40,7 @@ class review
 {
 	public:
 		#pragma db id auto
+		std::string id;
 		std::string user_id;
 		std::string business_id;
 		std::string stars;
@@ -52,6 +53,7 @@ class hours
 {
 	public:
 		#pragma db id auto
+		std::string id;
 		std::string business_id;
 		//#pragma db not null
 		std::string hours;
