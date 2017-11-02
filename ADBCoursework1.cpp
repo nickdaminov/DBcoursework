@@ -64,16 +64,15 @@ std::vector<StarCount> countStars(odb::database& db, float latMin, float latMax,
 	// Your implementation goes here:
 	// db.query<StarCount>("select ...")
 	std::string empty = "";
+	//the crucial thing is to make it into integer tuple of (int, int) format
  	auto starCounts = db.query<StarCount>(empty + "SELECT review.stars, COUNT(*)" +
 																				" FROM review JOIN business ON review.business_id=business.id" +
 																				" WHERE latitude BETWEEN " +  to_string(latMin) + " AND " + to_string(latMax) +
 																				" AND longitude BETWEEN " + to_string(longMin) + " AND " + to_string(longMax) +
 																				" GROUP BY review.stars");
 
-	//select review.stars
-	//WHERE latitude is BETWEEN AND longitude is BETWEEN
+	//idk why it works ^
 	// Count the stars
-
 	for (auto star : starCounts) {
 		auto s = star;
 		result.push_back(s);
@@ -88,8 +87,8 @@ void createIndex(odb::database& db){
 	// don't forget to wrap it in a transaction
 	// create a columnstore index to accelerate your query
 	transaction t(db.begin());
-	//db.execute("CREATE NONCLUSTERED INDEX business_index ON business(id, latitude, longitude)");
-	//db.execute("CREATE NONCLUSTERED INDEX review_index ON review(business_id, stars)");
+	db.execute("CREATE NONCLUSTERED INDEX business_index ON business(id, latitude, longitude)");
+	db.execute("CREATE NONCLUSTERED INDEX review_index ON review(business_id, stars)");
 	t.commit();
 }
 
