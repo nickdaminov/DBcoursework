@@ -73,7 +73,8 @@ std::vector<StarCount> countStars(odb::database& db, float latMin, float latMax,
 	// Count the stars
 
 	for (auto star : starCounts) {
-		result.push_back(star);
+		std::string s = star;
+		result.push_back(s);
 	}
 
 	t.commit();
