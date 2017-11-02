@@ -64,7 +64,7 @@ std::vector<StarCount> countStars(odb::database& db, float latMin, float latMax,
 	// Your implementation goes here:
 	// db.query<StarCount>("select ...")
 	std::string empty = "";
- 	auto starCounts = db.query<StarCount>(empty + "SELECT review.stars COUNT()" +
+ 	auto starCounts = db.query<StarCount>(empty + "SELECT review.stars COUNT(*)" +
 																				" FROM review JOIN business ON review.business_id=business.id" +
 																				" WHERE latitude BETWEEN " +  to_string(latMin) + " AND " + to_string(latMax) +
 																				" AND longitude BETWEEN " + to_string(longMin) + " AND " + to_string(longMax) +
