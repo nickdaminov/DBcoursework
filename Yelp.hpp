@@ -73,6 +73,7 @@ class business
 		#pragma db id auto
 		std::string id;
 		//#pragma db not null
+		std::string business_index;
 		std::string latitude;
 		std::string longitude;
 		//hours () {};
