@@ -64,8 +64,7 @@ std::vector<StarCount> countStars(odb::database& db, float latMin, float latMax,
 	// Your implementation goes here:
 	// db.query<StarCount>("select ...")
 	auto starCounts = db.query<StarCount>("SELECT review.stars"
-																				"FROM review"
-																				"INNER JOIN business ON review.business_id=business.id"
+																				"FROM review INNER JOIN business ON review.business_id=business.id"
 																				"WHERE business.latitude BETWEEN latMin AND latMax"
 																				"AND business.longitude BETWEEN latMin AND latMAX");
 	//select review.stars
