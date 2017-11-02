@@ -87,8 +87,6 @@ void createIndex(odb::database& db){
 	// don't forget to wrap it in a transaction
 	// create a columnstore index to accelerate your query
 	transaction t(db.begin());
-	db.execute("DROP INDEX business_index ON business");
-	db.execute("DROP INDEX review_index ON review");
 	db.execute("CREATE COLUMNSTORE INDEX business_index ON business(id, latitude, longitude)");
 	db.execute("CREATE COLUMNSTORE INDEX review_index ON review(business_id, stars)");
 	//db.execute("DROP INDEX business_index_v2 ON business");
@@ -103,8 +101,8 @@ void dropIndex(odb::database& db){
 	// don't forget to wrap it in a transaction
 	// drop the columnstore index you've created
 	transaction t(db.begin());
-	//db.execute("DROP INDEX business_index_v2 ON business");
-	//db.execute("DROP INDEX review_index_v2 ON review");
+	db.execute("DROP INDEX business_index ON business");
+	db.execute("DROP INDEX review_index ON review");
 	t.commit();
 }
 
@@ -202,7 +200,7 @@ int main(int argc, char** argv) {
 					 << " time before indexing: " << getLastQueryRuntime(db).elapsed_time << endl;
 		}
 
-		createIndex(db);
+		//createIndex(db);
 
 		// warmup run
 		countStars(db, 30.0, 45.7, -100.0, -1.0);
