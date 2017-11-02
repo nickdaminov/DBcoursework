@@ -1,0 +1,16 @@
+nd2215@cloud-vm-44-158:~/homedir/DBcoursework/build$ ~/homedir/DBcoursework/build/ADBCoursework1
+findHours Test 1: passed
+findHours Test 2: passed
+findHours Test 3: passed
+countStars Test 1: passed
+countStars Test 2: passed
+Run number 0 time before indexing: 2857179
+Run number 1 time before indexing: 2757913
+Run number 2 time before indexing: 2751238
+Run number 3 time before indexing: 2624743
+Run number 4 time before indexing: 2812239
+ Run number 0 time after indexing: 503311
+ Run number 1 time after indexing: 2517
+ Run number 2 time after indexing: 504901
+ Run number 3 time after indexing: 504289
+ Run number 4 time after indexing: 503467

@@ -1,0 +1,12 @@
+So the Indexing part in function 3 is performed on three columns of the business fields that we use in function 2:
+  id,
+  latitude and
+  longitude
+And 2 review fields:
+  business_id,
+  stars.
+This means that by creating such column indexes we achieve faster access to these values for all the records in the business and review tables.
+Because of how many requests we get this short improvement building up and as the end result gain time boost in querying the database.
+
+Dropping the same indexes in function 4 is important to see the effect of indexing in further compilations as otherwise
+we will use previously created indexes.
