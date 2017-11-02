@@ -67,7 +67,8 @@ std::vector<StarCount> countStars(odb::database& db, float latMin, float latMax,
  	auto starCounts = db.query<StarCount>(empty + "SELECT review.stars" +
 																				" FROM review JOIN business ON review.business_id=business.id" +
 																				" WHERE latitude BETWEEN " +  to_string(latMin) + " AND " + to_string(latMax) +
-																				" AND longitude BETWEEN " + to_string(longMin) + " AND " + to_string(longMax));
+																				" AND longitude BETWEEN " + to_string(longMin) + " AND " + to_string(longMax) +
+																				" GROUP BY review.stars");
 
 	//select review.stars
 	//WHERE latitude is BETWEEN AND longitude is BETWEEN
