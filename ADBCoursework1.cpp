@@ -72,10 +72,10 @@ std::vector<StarCount> countStars(odb::database& db, float latMin, float latMax,
 	//WHERE latitude is BETWEEN AND longitude is BETWEEN
 	// Count the stars
 
-	/*for (auto star : starCounts) {
+	for (auto star : starCounts) {
 		auto s = star;
 		result.push_back(s);
-	}*/
+	}
 
 	t.commit();
 	return result;
